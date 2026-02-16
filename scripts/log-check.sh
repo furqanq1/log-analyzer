@@ -12,3 +12,4 @@ grep -i "error" $LOG || echo "No errors" >> $LATEST
 echo "" >> $LATEST
 echo "[WARNINGS]" >> $LATEST
 grep -i "warning" $LOG || echo "No warnings" >> $LATEST
+echo 'Total Lines: ' $(wc -l logs/app.log | awk '{print }')
