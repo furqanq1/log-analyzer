@@ -5,6 +5,26 @@ set -e
 REPORT_DIR="/opt/log-analyzer/reports"
 LOGFILE="/opt/log-analyzer/logs/app.log"
 LATEST="$REPORT_DIR/latest.txt"
+feature/rich-report-ui
+TS=$(date "+%F %T")
+
+mkdir -p "$REPORT_DIR"
+
+# Helper: safe run a section (never break report)
+section () {
+  local title="$1"; shift
+  echo "==================[ $title ]==================" 
+  { "$@"; } 2>&1 || true
+  echo
+}
+
+{
+  echo "************ LOG ANALYZER – RICH REPORT ************"
+  echo "Generated at: $TS"
+  echo
+
+  section "HOST / OS / KERNEL" bash -lc 
+=======
 
 # Ensure paths exist
 mkdir -p "$REPORT_DIR"
@@ -95,3 +115,4 @@ append bash -lc 'echo; echo "[Last 10 lines]"; tail -n 10 "'"$LOGFILE"'"'
 } >> "$LATEST"
 
 chmod 644 "$LATEST"
+main

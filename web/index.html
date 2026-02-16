@@ -1,13 +1,24 @@
+<!DOCTYPE html>
 <html>
 <head>
+ feature/rich-report-ui
+  <meta charset="utf-8"/>
+=======
+main
   <title>Log Analyzer Dashboard</title>
   <link rel="stylesheet" href="/web/styles.css">
 </head>
 <body>
   <h1>Log Analyzer Dashboard</h1>
 
-  <button onclick="loadReport()">Show Latest Report</button>
-  <button onclick="downloadReport()">Download Report</button>
+  <div class="bar">
+    <button id="btnShow">Show Latest Report</button>
+    <button id="btnDownload">Download Report</button>
+    <label class="toggle">
+      <input type="checkbox" id="autoChk"/> Auto‑refresh (10s)
+    </label>
+    <span id="status">Ready</span>
+  </div>
 
   <pre id="output">Click the button to load</pre>
 
