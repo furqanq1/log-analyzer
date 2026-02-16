@@ -1,14 +1,25 @@
 #!/bin/bash
+# Rich system report -> /opt/log-analyzer/reports/latest.txt
+set -e
 
-LOG="logs/app.log"
-LATEST="reports/latest.txt"
+REPORT_DIR="/opt/log-analyzer/reports"
+LOGFILE="/opt/log-analyzer/logs/app.log"
+LATEST="$REPORT_DIR/latest.txt"
+TS=$(date "+%F %T")
 
-echo "Report generated at $(date)" > $LATEST
-echo "" >> $LATEST
+mkdir -p "$REPORT_DIR"
 
-echo "[ERRORS]" >> $LATEST
-grep -i "error" $LOG || echo "No errors" >> $LATEST
+# Helper: safe run a section (never break report)
+section () {
+  local title="$1"; shift
+  echo "==================[ $title ]==================" 
+  { "$@"; } 2>&1 || true
+  echo
+}
 
-echo "" >> $LATEST
-echo "[WARNINGS]" >> $LATEST
-grep -i "warning" $LOG || echo "No warnings" >> $LATEST
+{
+  echo "************ LOG ANALYZER – RICH REPORT ************"
+  echo "Generated at: $TS"
+  echo
+
+  section "HOST / OS / KERNEL" bash -lc 

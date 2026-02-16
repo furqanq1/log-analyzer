@@ -1,4 +1,8 @@
-body { background:#111; color:white; font-family:Arial; padding:20px; }
-h1 { color:#4ade80; }
-button { background:#4ade80; padding:10px 20px; border:0; margin-right:10px; cursor:pointer; }
-pre { background:#222; padding:15px; margin-top:20px; border-radius:8px; }
+body { background:#111; color:#eee; font: 15px/1.4 Arial, sans-serif; padding:20px; }
+h1 { color:#4ade80; margin-top:0; }
+.bar { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+button { background:#4ade80; color:#111; padding:8px 14px; border:0; cursor:pointer; border-radius:6px; }
+button:hover { filter:brightness(1.05); }
+.toggle { display:flex; align-items:center; gap:6px; margin-left:8px; }
+#status { color:#9ca3af; margin-left:8px; }
+pre { background:#1a1a1a; padding:14px; border-radius:8px; min-height:260px; overflow:auto; }
