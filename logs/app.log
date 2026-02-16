@@ -1,0 +1,5 @@
+INFO app started
+ERROR database failed
+WARNING memory high
+INFO request ok
+ERROR timeout

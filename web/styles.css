@@ -1,0 +1,4 @@
+body { background:#111; color:white; font-family:Arial; padding:20px; }
+h1 { color:#4ade80; }
+button { background:#4ade80; padding:10px 20px; border:0; margin-right:10px; cursor:pointer; }
+pre { background:#222; padding:15px; margin-top:20px; border-radius:8px; }
